@@ -1,0 +1,19 @@
+{
+  "name": "vl-ui-toaster",
+  "version": "0.0.0",
+  "description": "vl-ui-toaster",
+  "main": "vl-toaster",
+  "scripts": {
+    "test": "wct -l chrome,firefox --npm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-toaster.git"
+  },
+  "author": "DIDM",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/milieuinfo/webcomponent-vl-ui-toaster/issues"
+  },
+  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-toaster#readme"
+}
