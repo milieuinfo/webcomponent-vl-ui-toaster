@@ -2,9 +2,83 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>vl-toaster voorbeeld</title>
+  <title>vl-grid voorbeeld</title>
+  <meta name="viewport" content="width=device-width">
+  <script type="module" src="demo.js"></script>
+  <script type="module"
+          src="../node_modules/@webcomponents/webcomponentsjs/webcomponents-loader.js"></script>
+  <script type="module" src="../vl-toaster.src.js"></script>
+  <script type="module" src="../node_modules/vl-ui-alert/vl-alert.js"></script>
 </head>
 <body>
+<h1>vl-ui-toaster demo</h1>
 
+<div>
+  <h2>Toaster</h2>
+  <pre>
+      <code class="line-numbers language-markup">
+        &lt;script&gt;
+          const createErrorAlert = () =&gt; {
+            return document
+                    .createRange()
+                      .createContextualFragment(`&lt;vl-alert type="error" icon="warning" title="Error!" closable&gt;
+                                                  &lt;p&gt;Er is een fout opgetreden.&lt;/p&gt;
+                                                 &lt;/vl-alert&gt;`)
+          };
+
+          const onError = (e) =&gt; {
+            document.querySelector("#top-left-toaster").addAlert(createErrorAlert());
+          };
+
+          const createSuccessAlert = () =&gt; {
+            return document
+              .createRange()
+                .createContextualFragment(`&lt;vl-alert type="success" icon="check" title="Gelukt!" closable&gt;
+                                          &lt;p&gt;Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.&lt;/p&gt;
+                                         &lt;/vl-alert&gt;`)
+          };
+
+          const onSuccess = (e) =&gt; {
+            document.querySelector("#top-left-toaster").addAlert(createSuccessAlert());
+          }
+        &lt;/script&gt;
+        &lt;div id="top-left-toaster" is="vl-toaster" top-left&gt;&lt;/div&gt;
+        &lt;button onclick="onError()"&gt;Error!&lt;/button&gt;
+        &lt;button onclick="onSuccess()"&gt;Success!&lt;/button&gt;
+      </code>
+  </pre>
+  <div class="demo">
+    <script>
+      const createErrorAlert = () => {
+        return document
+          .createRange()
+            .createContextualFragment(`<vl-alert type="error" icon="warning" title="Error!" closable>
+                                        <p>Er is een fout opgetreden.</p>
+                                       </vl-alert>`)
+      };
+
+      const onError = (e) => {
+      document.querySelector("#top-left-toaster").addAlert(createErrorAlert());
+      };
+
+      const createSuccessAlert = () => {
+        return document
+          .createRange()
+            .createContextualFragment(`<vl-alert type="success" icon="check" title="Gelukt!" closable>
+                                        <p>Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
+                                       </vl-alert>`)
+      };
+
+      const onSuccess = (e) => {
+        document.querySelector("#top-left-toaster").addAlert(createSuccessAlert());
+      }
+    </script>
+    <div id="top-left-toaster" is="vl-toaster" top-left>
+    </div>
+    <button onclick="onError()">Error!</button>
+    <button onclick="onSuccess()">Success!</button>
+  </div>
+</div>
 </body>
 </html>
