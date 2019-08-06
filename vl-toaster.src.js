@@ -49,24 +49,8 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
     return 'data-vl-select-dressed';
   }
 
-  get _dressed() {
-    return !!this.getAttribute(VlToaster._dressedAttributeName);
-  }
-
-  dress() {
-    (async () => {
-      while(!window.vl || !window.vl.toaster) {
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
-      if (!this._dressed) {
-        vl.toaster.dress(this);
-      }
-    })();
-  }
-
   connectedCallback(){
     this.classList.add('vl-toaster');
-    this.dress();
   }
 
   addAlert(alert){
