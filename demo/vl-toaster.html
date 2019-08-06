@@ -15,56 +15,115 @@
 <h1>vl-ui-toaster demo</h1>
 
 <div>
-  <h2>Fadeout</h2>
+  <h2>Alerts tonen</h2>
   <pre>
-      <code class="line-numbers language-markup">
+    <code class="line-numbers language-markup">
       &lt;script&gt;
-        const topLeftToaster = () =&gt;{ return document.querySelector("#top-left-toaster")};
-  
         const newErrorAlert = () =&gt; {
           return document
-            .createRange()
-              .createContextualFragment(`&lt;vl-alert type="error" icon="warning" title="Error!" closable&gt;
-                                          &lt;p&gt;Er is een fout opgetreden.&lt;/p&gt;
-                                         &lt;/vl-alert&gt;`)
+          .createRange()
+          .createContextualFragment(`&lt;vl-alert type="error" icon="warning" title="Error!" closable&gt;
+                                            &lt;p&gt;Er is een fout opgetreden.&lt;/p&gt;
+                                           &lt;/vl-alert&gt;`)
         };
   
         const newSuccessAlert = () =&gt; {
           return document
-            .createRange()
-              .createContextualFragment(`&lt;vl-alert type="success" icon="check" title="Gelukt!" closable&gt;
-                                          &lt;p&gt;Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.&lt;/p&gt;
-                                         &lt;/vl-alert&gt;`);
-        }
+          .createRange()
+          .createContextualFragment(`&lt;vl-alert type="success" icon="check" title="Gelukt!" closable&gt;
+                                            &lt;p&gt;Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.&lt;/p&gt;
+                                           &lt;/vl-alert&gt;`);
+        };
+        
+        const demoToaster = () =&gt;{ return document.querySelector("#demo-toaster")};
       &lt;/script&gt;
-      &lt;div id="top-left-toaster" is="vl-toaster" top-left fadeout&gt;&lt;/div&gt;
-      &lt;button onclick="topLeftToaster().push(newErrorAlert());"&gt;Error!&lt;/button&gt;
-      &lt;button onclick="topLeftToaster().push(newSuccessAlert());"&gt;Success!&lt;/button&gt;
+      
+      &lt;div id="demo-toaster" is="vl-toaster"&gt;&lt;/div&gt;
+      
+      &lt;button onclick="demoToaster().push(newSuccessAlert());"&gt;Success!&lt;/button&gt;
+    </code>
+  </pre>
+  <div class="demo">
+    <script>
+      const newErrorAlert = () => {
+        return document
+        .createRange()
+        .createContextualFragment(`<vl-alert type="error" icon="warning" title="Error!" closable>
+                                          <p>Er is een fout opgetreden.</p>
+                                         </vl-alert>`)
+      };
+
+      const newSuccessAlert = () => {
+        return document
+        .createRange()
+        .createContextualFragment(`<vl-alert type="success" icon="check" title="Gelukt!" closable>
+                                          <p>Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
+                                         </vl-alert>`);
+      };
+      
+      const demoToaster = () =>{ return document.querySelector("#demo-toaster")};
+    </script>
+    <div id="demo-toaster" is="vl-toaster"></div>
+    <button onclick="demoToaster().push(newSuccessAlert());">Success!</button>
+  </div>
+</div>
+<div>
+  <h2>Positioneren</h2>
+  <pre>
+    <code class="line-numbers language-markup">
+      &lt;script&gt;
+        const topLeftToaster = () =&gt;{ return document.querySelector("#top-left-toaster")};
+        const topRightToaster = () =&gt;{ return document.querySelector("#top-right-toaster")};
+        const bottomLeftToaster = () =&gt;{ return document.querySelector("#bottom-left-toaster")};
+        const bottomRightToaster = () =&gt;{ return document.querySelector("#bottom-right-toaster")};
+      &lt;/script&gt;
+      &lt;button onclick="topLeftToaster().push(newSuccessAlert());"&gt;Top-left!&lt;/button&gt;
+      &lt;button onclick="topRightToaster().push(newSuccessAlert());"&gt;Top-right!&lt;/button&gt;
+      &lt;button onclick="bottomLeftToaster().push(newSuccessAlert());"&gt;Bottom-left!&lt;/button&gt;
+      &lt;button onclick="bottomRightToaster().push(newSuccessAlert());"&gt;Bottom-right!&lt;/button&gt;
       </code>
   </pre>
   <div class="demo">
     <script>
       const topLeftToaster = () =>{ return document.querySelector("#top-left-toaster")};
-
-      const newErrorAlert = () => {
-        return document
-          .createRange()
-            .createContextualFragment(`<vl-alert type="error" icon="warning" title="Error!" closable>
-                                        <p>Er is een fout opgetreden.</p>
-                                       </vl-alert>`)
-      };
-
-      const newSuccessAlert = () => {
-        return document
-          .createRange()
-            .createContextualFragment(`<vl-alert type="success" icon="check" title="Gelukt!" closable>
-                                        <p>Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
-                                       </vl-alert>`);
-      }
+      const topRightToaster = () =>{ return document.querySelector("#top-right-toaster")};
+      const bottomLeftToaster = () =>{ return document.querySelector("#bottom-left-toaster")};
+      const bottomRightToaster = () =>{ return document.querySelector("#bottom-right-toaster")};
     </script>
-    <div id="top-left-toaster" is="vl-toaster" top-left fadeout></div>
-    <button onclick="topLeftToaster().push(newErrorAlert());">Error!</button>
-    <button onclick="topLeftToaster().push(newSuccessAlert());">Success!</button>
+    <div id="top-left-toaster" is="vl-toaster" top-left></div>
+    <div id="top-right-toaster" is="vl-toaster" top-right></div>
+    <div id="bottom-left-toaster" is="vl-toaster" bottom-left></div>
+    <div id="bottom-right-toaster" is="vl-toaster" bottom-right></div>
+    <button onclick="topLeftToaster().push(newSuccessAlert());">Top-left!</button>
+    <button onclick="topRightToaster().push(newSuccessAlert());">Top-right!</button>
+    <button onclick="bottomLeftToaster().push(newSuccessAlert());">Bottom-left!</button>
+    <button onclick="bottomRightToaster().push(newSuccessAlert());">Bottom-right!</button>
+  </div>
+</div>
+<div>
+  <h2>Fadeout</h2>
+  <pre>
+      <code class="line-numbers language-markup">
+      &lt;script&gt;
+
+        ...
+
+        const fadeoutToaster = () =&gt;{ return document.querySelector("#fadeout-toaster")};
+
+      &lt;/script&gt;
+
+      &lt;div id="fadeout-toaster" is="vl-toaster" fadeout&gt;&lt;/div&gt;
+      &lt;button onclick="fadeoutToaster().push(newErrorAlert());"&gt;Error!&lt;/button&gt;
+      &lt;button onclick="fadeoutToaster().push(newSuccessAlert());"&gt;Success!&lt;/button&gt;
+      </code>
+  </pre>
+  <div class="demo">
+    <script>
+      const fadeoutToaster = () =>{ return document.querySelector("#fadeout-toaster")};
+    </script>
+    <div id="fadeout-toaster" is="vl-toaster" fadeout></div>
+    <button onclick="fadeoutToaster().push(newErrorAlert());">Error!</button>
+    <button onclick="fadeoutToaster().push(newSuccessAlert());">Success!</button>
   </div>
 </div>
 </body>

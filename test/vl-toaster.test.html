@@ -14,6 +14,30 @@
     </template>
   </test-fixture>
 
+  <test-fixture id="vl-toaster-top-left-fixture">
+    <template>
+      <div is="vl-toaster" top-left></div>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="vl-toaster-top-right-fixture">
+    <template>
+      <div is="vl-toaster" top-right></div>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="vl-toaster-bottom-left-fixture">
+    <template>
+      <div is="vl-toaster" bottom-left></div>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="vl-toaster-bottom-right-fixture">
+    <template>
+      <div is="vl-toaster" bottom-right></div>
+    </template>
+  </test-fixture>
+
   <test-fixture id="vl-toaster-fadeout-fixture">
     <template>
       <div is="vl-toaster" fadeout></div>
@@ -29,6 +53,42 @@
       })
     });
 
+    suite('vl-toaster top-left',()=>{
+      const should = chai.should();
+
+      test('heeft de klass vl-toaster--top-left class',()=>{
+        const element = fixture('vl-toaster-top-left-fixture');
+        assert.isTrue(element.classList.contains('vl-toaster'));
+      })
+    });
+
+    suite('vl-toaster top-right',()=>{
+      const should = chai.should();
+
+      test('heeft de klass vl-toaster--top-right class',()=>{
+        const element = fixture('vl-toaster-top-right-fixture');
+        assert.isTrue(element.classList.contains('vl-toaster'));
+      })
+    });
+
+    suite('vl-toaster bottom-left',()=>{
+      const should = chai.should();
+
+      test('heeft de klass vl-toaster--bottom-left class',()=>{
+        const element = fixture('vl-toaster-bottom-left-fixture');
+        assert.isTrue(element.classList.contains('vl-toaster--bottom-left'));
+      })
+    });
+
+    suite('vl-toaster bottom-right',()=>{
+      const should = chai.should();
+
+      test('heeft de klass vl-toaster--bottom-right class',()=>{
+        const element = fixture('vl-toaster-bottom-right-fixture');
+        assert.isTrue(element.classList.contains('vl-toaster--bottom-right'));
+      })
+    });
+
     suite('vl-toaster-fadeout',()=>{
       const should = chai.should();
       var element;
@@ -41,7 +101,7 @@
         },1000);
       });
 
-      test('de fadeout werkt',(done) =>{
+      test('bij fadeout mode verdewijnt alert automatische na (ongeveer)5 seconden',(done) =>{
         element.push(createErrorAlert());
         flush(function () {
           assert.equal(element.childNodes.length,1);

@@ -50,13 +50,8 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
     return ['top-left', 'top-right', 'bottom-left', 'bottom-right']
   }
 
-  static get _dressedAttributeName() {
-    return 'data-vl-toaster-dressed';
-  }
-
   connectedCallback(){
     this.classList.add('vl-toaster');
-   // this.dress();
   }
 
   push(alert) {
