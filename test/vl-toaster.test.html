@@ -42,7 +42,7 @@
       });
 
       test('de fadeout werkt',(done) =>{
-        element.addAlert(createErrorAlert());
+        element.push(createErrorAlert());
         flush(function () {
           assert.equal(element.childNodes.length,1);
           //de alert verdewijnt automatische na 5 seconden

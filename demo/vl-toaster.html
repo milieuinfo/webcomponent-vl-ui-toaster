@@ -18,39 +18,35 @@
   <h2>Fadeout</h2>
   <pre>
       <code class="line-numbers language-markup">
-        &lt;script&gt;
-          const createErrorAlert = () =&gt; {
-            return document
-                    .createRange()
-                      .createContextualFragment(`&lt;vl-alert type="error" icon="warning" title="Error!" closable&gt;
-                                                  &lt;p&gt;Er is een fout opgetreden.&lt;/p&gt;
-                                                 &lt;/vl-alert&gt;`)
-          };
-
-          const onError = (e) =&gt; {
-            document.querySelector("#top-left-toaster").addAlert(createErrorAlert());
-          };
-
-          const createSuccessAlert = () =&gt; {
-            return document
-              .createRange()
-                .createContextualFragment(`&lt;vl-alert type="success" icon="check" title="Gelukt!" closable&gt;
-                                          &lt;p&gt;Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.&lt;/p&gt;
+      &lt;script&gt;
+        const topLeftToaster = () =&gt;{ return document.querySelector("#top-left-toaster")};
+  
+        const newErrorAlert = () =&gt; {
+          return document
+            .createRange()
+              .createContextualFragment(`&lt;vl-alert type="error" icon="warning" title="Error!" closable&gt;
+                                          &lt;p&gt;Er is een fout opgetreden.&lt;/p&gt;
                                          &lt;/vl-alert&gt;`)
-          };
-
-          const onSuccess = (e) =&gt; {
-            document.querySelector("#top-left-toaster").addAlert(createSuccessAlert());
-          }
-        &lt;/script&gt;
-        &lt;div id="top-left-toaster" is="vl-toaster" top-left fadeout&gt;&lt;/div&gt;
-        &lt;button onclick="onError()"&gt;Error!&lt;/button&gt;
-        &lt;button onclick="onSuccess()"&gt;Success!&lt;/button&gt;
+        };
+  
+        const newSuccessAlert = () =&gt; {
+          return document
+            .createRange()
+              .createContextualFragment(`&lt;vl-alert type="success" icon="check" title="Gelukt!" closable&gt;
+                                          &lt;p&gt;Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.&lt;/p&gt;
+                                         &lt;/vl-alert&gt;`);
+        }
+      &lt;/script&gt;
+      &lt;div id="top-left-toaster" is="vl-toaster" top-left fadeout&gt;&lt;/div&gt;
+      &lt;button onclick="topLeftToaster().push(newErrorAlert());"&gt;Error!&lt;/button&gt;
+      &lt;button onclick="topLeftToaster().push(newSuccessAlert());"&gt;Success!&lt;/button&gt;
       </code>
   </pre>
   <div class="demo">
     <script>
-      const createErrorAlert = () => {
+      const topLeftToaster = () =>{ return document.querySelector("#top-left-toaster")};
+
+      const newErrorAlert = () => {
         return document
           .createRange()
             .createContextualFragment(`<vl-alert type="error" icon="warning" title="Error!" closable>
@@ -58,26 +54,17 @@
                                        </vl-alert>`)
       };
 
-      const onError = (e) => {
-      document.querySelector("#top-left-toaster").addAlert(createErrorAlert());
-      };
-
-      const createSuccessAlert = () => {
+      const newSuccessAlert = () => {
         return document
           .createRange()
             .createContextualFragment(`<vl-alert type="success" icon="check" title="Gelukt!" closable>
                                         <p>Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
-                                       </vl-alert>`)
-      };
-
-      const onSuccess = (e) => {
-        document.querySelector("#top-left-toaster").addAlert(createSuccessAlert());
+                                       </vl-alert>`);
       }
     </script>
-    <div id="top-left-toaster" is="vl-toaster" top-left fadeout>
-    </div>
-    <button onclick="onError()">Error!</button>
-    <button onclick="onSuccess()">Success!</button>
+    <div id="top-left-toaster" is="vl-toaster" top-left fadeout></div>
+    <button onclick="topLeftToaster().push(newErrorAlert());">Error!</button>
+    <button onclick="topLeftToaster().push(newSuccessAlert());">Success!</button>
   </div>
 </div>
 </body>
