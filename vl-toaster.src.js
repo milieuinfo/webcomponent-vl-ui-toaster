@@ -1,11 +1,14 @@
-import {NativeVlElement} from "/node_modules/vl-ui-core/vl-core.js";
+import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
 
 (() => {
-  loadScript('util.js', '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js', () => {
-    loadScript('core.js', '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js', () => {
-      loadScript('vl-toaster.js', '/node_modules/@govflanders/vl-ui-toaster/dist/js/toaster.js');
-    });
-  });
+  loadScript('util.js',
+      '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js', () => {
+        loadScript('core.js',
+            '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js', () => {
+              loadScript('vl-toaster.js',
+                  '/node_modules/@govflanders/vl-ui-toaster/dist/js/toaster.js');
+            });
+      });
 
   function loadScript(id, src, onload) {
     if (!document.head.querySelector('#' + id)) {
@@ -19,7 +22,7 @@ import {NativeVlElement} from "/node_modules/vl-ui-core/vl-core.js";
 })();
 
 export class VlToaster extends NativeVlElement(HTMLDivElement) {
-  constructor(){
+  constructor() {
     super();
   }
 
@@ -32,9 +35,11 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
   }
 
   _fadeoutChangedCallback(oldValue, newValue) {
-    this.setAttribute('data-vl-toaster','');
-    this.setAttribute('data-vl-toaster-fadeout', true);
-    this.dress();
+    if (newValue ==="" || newValue ===true) {
+      this._element.setAttribute('data-vl-toaster-fadeout', true);
+    } else {
+      this._element.removeAttribute('data-vl-toaster-fadeout', false);
+    }
   };
 
   static get _observedAttributes() {
@@ -46,17 +51,17 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
   }
 
   static get _dressedAttributeName() {
-    return 'data-vl-select-dressed';
+    return 'data-vl-toaster-dressed';
   }
 
   connectedCallback(){
     this.classList.add('vl-toaster');
+   // this.dress();
   }
 
-  addAlert(alert){
+  addAlert(alert) {
     this._element.appendChild(alert);
   }
-
 }
 
-customElements.define('vl-toaster', VlToaster, {extends: 'div'});
+define('vl-toaster', VlToaster, {extends: 'div'});

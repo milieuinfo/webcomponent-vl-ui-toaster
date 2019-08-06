@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="../../@webcomponents/webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <script type="module" src="../vl-toaster.src.js"></script>
+  <script type="module" src="../node_modules/vl-ui-alert/vl-alert.js"></script>
+</head>
+<body>
+  <test-fixture id="vl-toaster-fixture">
+    <template>
+      <div is="vl-toaster"></div>
+    </template>
+  </test-fixture>
+
+  <test-fixture id="vl-toaster-fadeout-fixture">
+    <template>
+      <div is="vl-toaster" fadeout></div>
+    </template>
+  </test-fixture>
+  <script>
+    suite('vl-toaster',()=>{
+      const should = chai.should();
+
+      test('heeft de klass vl-toaster class',()=>{
+        const element = fixture('vl-toaster-fixture');
+        assert.isTrue(element.classList.contains('vl-toaster'));
+      })
+    });
+
+    suite('vl-toaster-fadeout',()=>{
+      const should = chai.should();
+      var element;
+
+      setup(function(done){
+        element = fixture('vl-toaster-fadeout-fixture');
+        //wacht tot dressing gedaan is
+        setTimeout(()=>{
+          done();
+        },1000);
+      });
+
+      test('de fadeout werkt',(done) =>{
+        element.addAlert(createErrorAlert());
+        flush(function () {
+          assert.equal(element.childNodes.length,1);
+          //de alert verdewijnt automatische na 5 seconden
+          setTimeout(()=>{
+            assert.equal(element.childNodes.length,0);
+            done();
+          },6000);
+        });
+      })
+    });
+
+    const createErrorAlert = () => {
+      return document
+      .createRange()
+      .createContextualFragment(`<vl-alert type="error" icon="warning" title="Error!" closable>
+                                        <p>Er is een fout opgetreden.</p>
+                                       </vl-alert>`)
+    };
+  </script>
+</body>
+</html>

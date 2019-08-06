@@ -15,7 +15,7 @@
 <h1>vl-ui-toaster demo</h1>
 
 <div>
-  <h2>Toaster</h2>
+  <h2>Fadeout</h2>
   <pre>
       <code class="line-numbers language-markup">
         &lt;script&gt;
@@ -43,7 +43,7 @@
             document.querySelector("#top-left-toaster").addAlert(createSuccessAlert());
           }
         &lt;/script&gt;
-        &lt;div id="top-left-toaster" is="vl-toaster" top-left&gt;&lt;/div&gt;
+        &lt;div id="top-left-toaster" is="vl-toaster" top-left fadeout&gt;&lt;/div&gt;
         &lt;button onclick="onError()"&gt;Error!&lt;/button&gt;
         &lt;button onclick="onSuccess()"&gt;Success!&lt;/button&gt;
       </code>
@@ -74,7 +74,7 @@
         document.querySelector("#top-left-toaster").addAlert(createSuccessAlert());
       }
     </script>
-    <div id="top-left-toaster" is="vl-toaster" top-left>
+    <div id="top-left-toaster" is="vl-toaster" top-left fadeout>
     </div>
     <button onclick="onError()">Error!</button>
     <button onclick="onSuccess()">Success!</button>
