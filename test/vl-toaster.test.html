@@ -8,119 +8,120 @@
   <script type="module" src="../node_modules/vl-ui-alert/vl-alert.js"></script>
 </head>
 <body>
-  <test-fixture id="vl-toaster-fixture">
-    <template>
-      <div is="vl-toaster"></div>
-    </template>
-  </test-fixture>
+<test-fixture id="vl-toaster-fixture">
+  <template>
+    <div is="vl-toaster"></div>
+  </template>
+</test-fixture>
 
-  <test-fixture id="vl-toaster-top-left-fixture">
-    <template>
-      <div is="vl-toaster" top-left></div>
-    </template>
-  </test-fixture>
+<test-fixture id="vl-toaster-top-left-fixture">
+  <template>
+    <div is="vl-toaster" top-left></div>
+  </template>
+</test-fixture>
 
-  <test-fixture id="vl-toaster-top-right-fixture">
-    <template>
-      <div is="vl-toaster" top-right></div>
-    </template>
-  </test-fixture>
+<test-fixture id="vl-toaster-top-right-fixture">
+  <template>
+    <div is="vl-toaster" top-right></div>
+  </template>
+</test-fixture>
 
-  <test-fixture id="vl-toaster-bottom-left-fixture">
-    <template>
-      <div is="vl-toaster" bottom-left></div>
-    </template>
-  </test-fixture>
+<test-fixture id="vl-toaster-bottom-left-fixture">
+  <template>
+    <div is="vl-toaster" bottom-left></div>
+  </template>
+</test-fixture>
 
-  <test-fixture id="vl-toaster-bottom-right-fixture">
-    <template>
-      <div is="vl-toaster" bottom-right></div>
-    </template>
-  </test-fixture>
+<test-fixture id="vl-toaster-bottom-right-fixture">
+  <template>
+    <div is="vl-toaster" bottom-right></div>
+  </template>
+</test-fixture>
 
-  <test-fixture id="vl-toaster-fadeout-fixture">
-    <template>
-      <div is="vl-toaster" fadeout></div>
-    </template>
-  </test-fixture>
-  <script>
-    suite('vl-toaster',()=>{
-      const should = chai.should();
+<test-fixture id="vl-toaster-fadeout-fixture">
+  <template>
+    <div is="vl-toaster" fadeout></div>
+  </template>
+</test-fixture>
+<script>
+  suite('vl-toaster', () => {
+    const should = chai.should();
 
-      test('heeft de klass vl-toaster class',()=>{
-        const element = fixture('vl-toaster-fixture');
-        assert.isTrue(element.classList.contains('vl-toaster'));
-      })
-    });
+    test('heeft de klass vl-toaster class', () => {
+      const element = fixture('vl-toaster-fixture');
+      assert.isTrue(element.classList.contains('vl-toaster'));
+    })
+  });
 
-    suite('vl-toaster top-left',()=>{
-      const should = chai.should();
+  suite('vl-toaster top-left', () => {
+    const should = chai.should();
 
-      test('heeft de klass vl-toaster--top-left class',()=>{
-        const element = fixture('vl-toaster-top-left-fixture');
-        assert.isTrue(element.classList.contains('vl-toaster'));
-      })
-    });
+    test('heeft de klass vl-toaster--top-left class', () => {
+      const element = fixture('vl-toaster-top-left-fixture');
+      assert.isTrue(element.classList.contains('vl-toaster--top-left'));
+    })
+  });
 
-    suite('vl-toaster top-right',()=>{
-      const should = chai.should();
+  suite('vl-toaster top-right', () => {
+    const should = chai.should();
 
-      test('heeft de klass vl-toaster--top-right class',()=>{
-        const element = fixture('vl-toaster-top-right-fixture');
-        assert.isTrue(element.classList.contains('vl-toaster'));
-      })
-    });
+    test('heeft de klass vl-toaster--top-right class', () => {
+      const element = fixture('vl-toaster-top-right-fixture');
+      assert.isTrue(element.classList.contains('vl-toaster--top-right'));
+    })
+  });
 
-    suite('vl-toaster bottom-left',()=>{
-      const should = chai.should();
+  suite('vl-toaster bottom-left', () => {
+    const should = chai.should();
 
-      test('heeft de klass vl-toaster--bottom-left class',()=>{
-        const element = fixture('vl-toaster-bottom-left-fixture');
-        assert.isTrue(element.classList.contains('vl-toaster--bottom-left'));
-      })
-    });
+    test('heeft de klass vl-toaster--bottom-left class', () => {
+      const element = fixture('vl-toaster-bottom-left-fixture');
+      assert.isTrue(element.classList.contains('vl-toaster--bottom-left'));
+    })
+  });
 
-    suite('vl-toaster bottom-right',()=>{
-      const should = chai.should();
+  suite('vl-toaster bottom-right', () => {
+    const should = chai.should();
 
-      test('heeft de klass vl-toaster--bottom-right class',()=>{
-        const element = fixture('vl-toaster-bottom-right-fixture');
-        assert.isTrue(element.classList.contains('vl-toaster--bottom-right'));
-      })
-    });
+    test('heeft de klass vl-toaster--bottom-right class', () => {
+      const element = fixture('vl-toaster-bottom-right-fixture');
+      assert.isTrue(element.classList.contains('vl-toaster--bottom-right'));
+    })
+  });
 
-    suite('vl-toaster-fadeout',()=>{
-      const should = chai.should();
-      var element;
+  suite('vl-toaster-fadeout', () => {
+    const should = chai.should();
+    var element = fixture('vl-toaster-fadeout-fixture');
 
-      setup(function(done){
-        element = fixture('vl-toaster-fadeout-fixture');
-        //wacht tot dressing gedaan is
-        setTimeout(()=>{
-          done();
-        },1000);
+    setup(() => {
+      return new Promise((resolve) => {
+        const wait = () => {
+          if (element._dressed) {
+            resolve();
+          }
+        };
+        setInterval(wait, 500);
       });
-
-      test('bij fadeout mode verdewijnt alert automatische na (ongeveer)5 seconden',(done) =>{
-        element.push(createErrorAlert());
-        flush(function () {
-          assert.equal(element.childNodes.length,1);
-          //de alert verdewijnt automatische na 5 seconden
-          setTimeout(()=>{
-            assert.equal(element.childNodes.length,0);
-            done();
-          },6000);
-        });
-      })
     });
 
-    const createErrorAlert = () => {
-      return document
-      .createRange()
-      .createContextualFragment(`<vl-alert type="error" icon="warning" title="Error!" closable>
+    test('bij fadeout mode verdewijnt alert automatische na (ongeveer)5 seconden', (done) => {
+      element.push(createErrorAlert());
+      assert.equal(element.childNodes.length, 1);
+      //de alert verdewijnt automatische na 5 seconden
+      setTimeout(() => {
+        assert.equal(element.childNodes.length, 0);
+        done()
+      }, 6000);
+    });
+  });
+
+  const createErrorAlert = () => {
+    return document
+    .createRange()
+    .createContextualFragment(`<vl-alert type="error" icon="warning" title="Error!" closable>
                                         <p>Er is een fout opgetreden.</p>
                                        </vl-alert>`)
-    };
-  </script>
+  };
+</script>
 </body>
 </html>
