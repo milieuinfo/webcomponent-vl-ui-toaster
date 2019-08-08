@@ -75,7 +75,6 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
    * @param alert
    */
   push(alert) {
-    alert.querySelector("vl-alert").setAttribute("size","small");
     this._element.appendChild(alert);
     alert.disableClosable();
   }
