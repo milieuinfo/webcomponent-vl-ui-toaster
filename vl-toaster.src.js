@@ -34,30 +34,6 @@ import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
  * @property {string} fadeout -
  */
 export class VlToaster extends NativeVlElement(HTMLDivElement) {
-  constructor() {
-    super();
-  }
-
-  get _classPrefix() {
-    return 'vl-toaster--';
-  }
-
-  get _stylePath() {
-    return '../style.css';
-  }
-
-  get toasterFadeClass() {
-    return this._classPrefix.concat("fade");
-  }
-
-  _fadeoutChangedCallback(oldValue, newValue) {
-    if (newValue !=undefined) {
-      this._element.setAttribute('data-vl-toaster-fadeout', true);
-    } else {
-      this._element.removeAttribute('data-vl-toaster-fadeout');
-    }
-  };
-
   static get _observedAttributes() {
     return ['fadeout'];
   }
@@ -70,26 +46,27 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
     return 'data-vl-toaster-dressed';
   }
 
-  get _dressed() {
-    return !!this.getAttribute(VlToaster._dressedAttributeName);
-  }
-
-  _dress() {
-    (async () => {
-      while(!window.vl || !window.vl.toaster) {
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
-      if (!this._dressed) {
-        vl.toaster._dress(this);
-      }
-    })();
-  }
-
   connectedCallback(){
     this.classList.add('vl-toaster');
     this._dress();
   }
-  
+
+  get _classPrefix() {
+    return 'vl-toaster--';
+  }
+
+  get _stylePath() {
+    return '../style.css';
+  }
+
+  get toasterFadeClass() {
+    return 'vl-alert--fade-out';
+  }
+
+  get _dressed() {
+    return !!this.getAttribute(VlToaster._dressedAttributeName);
+  }
+
   /**
    *
    * Toont een alert
@@ -99,6 +76,7 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
    */
   push(alert) {
     this._element.appendChild(alert);
+    alert.disableClosable();
   }
 
   /**
@@ -112,6 +90,25 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
       window.setTimeout(function () {
         alert.remove();
       }, 300);
+  }
+
+  _fadeoutChangedCallback(oldValue, newValue) {
+    if (newValue !=undefined) {
+      this._element.setAttribute('data-vl-toaster-fadeout', true);
+    } else {
+      this._element.removeAttribute('data-vl-toaster-fadeout');
+    }
+  };
+
+  _dress() {
+    (async () => {
+      while(!window.vl || !window.vl.toaster) {
+        await new Promise(resolve => setTimeout(resolve, 100));
+      }
+      if (!this._dressed) {
+        vl.toaster._dress(this);
+      }
+    })();
   }
 }
 

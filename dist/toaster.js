@@ -42,8 +42,8 @@
    * Private Variables
    */
   var toasterClass = "".concat(vl.ns, "toaster"),
-      toasterFadeClass = "".concat(toasterClass, "--fade"),
       alertClass = "".concat(vl.ns, "alert"),
+      toasterFadeClass = "".concat(alertClass, "--fade-out"),
       alertCloseClass = "".concat(alertClass, "__close"),
       dataPrefix = "data-".concat(vl.ns),
       toasterAtt = "".concat(dataPrefix, "toaster"),
