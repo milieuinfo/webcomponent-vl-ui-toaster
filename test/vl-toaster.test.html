@@ -43,6 +43,7 @@
     <div is="vl-toaster" fadeout></div>
   </template>
 </test-fixture>
+
 <script>
   suite('vl-toaster', () => {
     const should = chai.should();
@@ -104,24 +105,16 @@
       });
     });
 
-    test('bij fadeout mode verdewijnt alert automatische na (ongeveer)5 seconden', (done) => {
-      element.push(createErrorAlert());
+    test('bij fadeout mode verdwijnt alert automatisch na (ongeveer) 5 seconden', (done) => {
+      element.push(document.createElement('vl-alert'));
       assert.equal(element.childNodes.length, 1);
-      //de alert verdewijnt automatische na 5 seconden
+      //de alert verdwijnt automatisch na 5 seconden
       setTimeout(() => {
         assert.equal(element.childNodes.length, 0);
         done()
       }, 6000);
     });
   });
-
-  const createErrorAlert = () => {
-    return document
-    .createRange()
-    .createContextualFragment(`<vl-alert type="error" icon="warning" title="Error!" closable>
-                                        <p>Er is een fout opgetreden.</p>
-                                       </vl-alert>`)
-  };
 </script>
 </body>
 </html>
