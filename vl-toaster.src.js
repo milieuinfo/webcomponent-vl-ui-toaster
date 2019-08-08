@@ -23,7 +23,7 @@ import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
 /**
  * VlToaster
  * @class
- * @classdesc De toaster component is een container voor een aantal gestapelde alerts.
+ * @classdesc De toaster component is een container voor een aantal gestapelde alerts. <a href="demo/vl-toaster.html">Demo</a>.
  *
  * @Extends VlElement
  *
