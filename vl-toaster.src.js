@@ -5,7 +5,7 @@ import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
         loadScript('core.js',
             '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js', () => {
               loadScript('vl-toaster.js',
-                  '../dist/js/toaster.js');
+                  '../dist/toaster.js');
             });
       });
 
@@ -47,7 +47,7 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
   }
 
   get toasterFadeClass() {
-    this._classPrefix.concat("fade");
+    return this._classPrefix.concat("fade");
   }
 
   _fadeoutChangedCallback(oldValue, newValue) {
@@ -109,7 +109,7 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
    * @param alert
    */
   closeAlert(alert){
-      vl.util.addClass(alert,this.toasterFadeClass);
+      vl.util.addClass(alert, this.toasterFadeClass);
       window.setTimeout(function () {
         alert.remove();
       }, 300);

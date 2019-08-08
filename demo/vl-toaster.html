@@ -50,7 +50,7 @@
         const newCallOfActionAlert = () =&gt; {
           return document
           .createRange()
-          .createContextualFragment(`&lt;vl-alert icon="info" title="Opgelet!" closable&gt;
+          .createContextualFragment(`&lt;vl-alert type="cta" icon="info" title="Opgelet!" closable&gt;
                                       &lt;p&gt;U heeft geen rechten om deze actie uit te voeren. &lt;a href="#"&gt;Vraag rechten aan&lt;/a&gt;.&lt;/p&gt;
                                       &lt;button slot="actions" is="vl-button" id="b1"&gt;Fout melden&lt;/button&gt;
                                      &lt;/vl-alert&gt;`);
@@ -94,7 +94,7 @@
       const newCallOfActionAlert = () => {
         return document
         .createRange()
-        .createContextualFragment(`<vl-alert icon="info" title="Opgelet!" closable>
+        .createContextualFragment(`<vl-alert type="cta" icon="info" title="Opgelet!" closable>
                                     <p>U heeft geen rechten om deze actie uit te voeren. <a href="#">Vraag rechten aan</a>.</p>
                                     <button slot="actions" is="vl-button" id="b1">Fout melden</button>
                                    </vl-alert>`);
@@ -114,9 +114,6 @@
   <pre>
     <code class="line-numbers language-markup">
       &lt;script&gt;
-
-        ...
-
         const topLeftToaster = () =&gt;{ return document.querySelector("#top-left-toaster")};
         const topRightToaster = () =&gt;{ return document.querySelector("#top-right-toaster")};
         const bottomLeftToaster = () =&gt;{ return document.querySelector("#bottom-left-toaster")};
@@ -154,9 +151,6 @@
   <pre>
       <code class="line-numbers language-markup">
       &lt;script&gt;
-
-        ...
-
         const fadeoutToaster = () =&gt;{ return document.querySelector("#fadeout-toaster")};
       &lt;/script&gt;
 
