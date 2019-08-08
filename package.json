@@ -31,7 +31,7 @@
     "@govflanders/vl-ui-util": "3.7.2",
     "np": "3.0.4",
     "replace": "1.0.0",
-    "uglify-js-es6": "2.8.9",
+    "uglify-es": "github:mishoo/UglifyJS2#harmony",
     "vl-ui-alert": "^1.3.3",
     "vl-ui-button": "1.1.3",
     "vl-ui-util": "^1.2.15",
