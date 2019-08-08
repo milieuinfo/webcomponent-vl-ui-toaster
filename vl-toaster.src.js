@@ -5,7 +5,7 @@ import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
         loadScript('core.js',
             '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js', () => {
               loadScript('vl-toaster.js',
-                  '../dist/js/toaster.js');
+                  '../dist/toaster.js');
             });
       });
 
