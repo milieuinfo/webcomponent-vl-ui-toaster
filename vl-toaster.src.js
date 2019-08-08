@@ -27,11 +27,11 @@ import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
  *
  * @Extends VlElement
  *
- * @property {string} top-left -
- * @property {string} top-right -
- * @property {string} bottom-left -
- * @property {string} bottom-right
- * @property {string} fadeout -
+ * @property {string} top-left - Positioneert de toaster op linkerbovenhoek.
+ * @property {string} top-right - Positioneert de toaster op rechterbovenhoek.
+ * @property {string} bottom-left - Positioneert de toaster op linkeronderhoek.
+ * @property {string} bottom-right - Posistioneert de toaster op rechteronderhoek.
+ * @property {string} fadeout - Elke alert verdwijnt automatisch 5 seconden na openen.
  */
 export class VlToaster extends NativeVlElement(HTMLDivElement) {
   static get _observedAttributes() {
@@ -75,6 +75,7 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
    * @param alert
    */
   push(alert) {
+    alert.querySelector("vl-alert").setAttribute("size","small");
     this._element.appendChild(alert);
     alert.disableClosable();
   }
