@@ -89,7 +89,7 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
     this.classList.add('vl-toaster');
     this._dress();
   }
-
+  
   /**
    *
    * Toont een alert

@@ -27,32 +27,42 @@
           return document
           .createRange()
           .createContextualFragment(`&lt;vl-alert type="warning" icon="alert-triangle" title="Technische storing" closable&gt;
-                                            &lt;p&gt;Door een technische storing is dit loket tijdelijk niet beschikbaar.&lt;/p&gt;
-                                           &lt;/vl-alert&gt;`)
+                                      &lt;p&gt;Door een technische storing is dit loket tijdelijk niet beschikbaar.&lt;/p&gt;
+                                     &lt;/vl-alert&gt;`)
         };
   
         const newErrorAlert = () =&gt; {
           return document
           .createRange()
           .createContextualFragment(`&lt;vl-alert type="error" icon="warning" title="Error" closable&gt;
-                                            &lt;p&gt;Er is een fout opgetreden.&lt;/p&gt;
-                                           &lt;/vl-alert&gt;`)
+                                      &lt;p&gt;Er is een fout opgetreden.&lt;/p&gt;
+                                     &lt;/vl-alert&gt;`)
         };
   
         const newSuccessAlert = () =&gt; {
           return document
           .createRange()
           .createContextualFragment(`&lt;vl-alert type="success" icon="check" title="Gelukt" closable&gt;
-                                            &lt;p&gt;Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.&lt;/p&gt;
-                                           &lt;/vl-alert&gt;`);
+                                      &lt;p&gt;Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.&lt;/p&gt;
+                                     &lt;/vl-alert&gt;`);
         };
+  
+        const newCallOfActionAlert = () =&gt; {
+          return document
+          .createRange()
+          .createContextualFragment(`&lt;vl-alert icon="info" title="Opgelet!" closable&gt;
+                                      &lt;p&gt;U heeft geen rechten om deze actie uit te voeren. &lt;a href="#"&gt;Vraag rechten aan&lt;/a&gt;.&lt;/p&gt;
+                                      &lt;button slot="actions" is="vl-button" id="b1"&gt;Fout melden&lt;/button&gt;
+                                     &lt;/vl-alert&gt;`);
+        };
+  
         const demoToaster = () =&gt;{ return document.querySelector("#demo-toaster")};
       &lt;/script&gt;
-
       &lt;div id="demo-toaster" is="vl-toaster"&gt;&lt;/div&gt;
       &lt;button is="vl-button" onclick="demoToaster().push(newSuccessAlert());"&gt;Success&lt;/button&gt;
       &lt;button is="vl-button" onclick="demoToaster().push(newWarningAlert());"&gt;Warning&lt;/button&gt;
       &lt;button is="vl-button" onclick="demoToaster().push(newErrorAlert());"&gt;Error&lt;/button&gt;
+      &lt;button is="vl-button" onclick="demoToaster().push(newCallOfActionAlert());"&gt;Call of action&lt;/button&gt;
     </code>
   </pre>
   <div class="demo">
@@ -61,31 +71,42 @@
         return document
         .createRange()
         .createContextualFragment(`<vl-alert type="warning" icon="alert-triangle" title="Technische storing" closable>
-                                          <p>Door een technische storing is dit loket tijdelijk niet beschikbaar.</p>
-                                         </vl-alert>`)
+                                    <p>Door een technische storing is dit loket tijdelijk niet beschikbaar.</p>
+                                   </vl-alert>`)
       };
 
       const newErrorAlert = () => {
         return document
         .createRange()
         .createContextualFragment(`<vl-alert type="error" icon="warning" title="Error" closable>
-                                          <p>Er is een fout opgetreden.</p>
-                                         </vl-alert>`)
+                                    <p>Er is een fout opgetreden.</p>
+                                   </vl-alert>`)
       };
 
       const newSuccessAlert = () => {
         return document
         .createRange()
         .createContextualFragment(`<vl-alert type="success" icon="check" title="Gelukt" closable>
-                                          <p>Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
-                                         </vl-alert>`);
+                                    <p>Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
+                                   </vl-alert>`);
       };
+
+      const newCallOfActionAlert = () => {
+        return document
+        .createRange()
+        .createContextualFragment(`<vl-alert icon="info" title="Opgelet!" closable>
+                                    <p>U heeft geen rechten om deze actie uit te voeren. <a href="#">Vraag rechten aan</a>.</p>
+                                    <button slot="actions" is="vl-button" id="b1">Fout melden</button>
+                                   </vl-alert>`);
+      };
+
       const demoToaster = () =>{ return document.querySelector("#demo-toaster")};
     </script>
     <div id="demo-toaster" is="vl-toaster"></div>
     <button is="vl-button" onclick="demoToaster().push(newSuccessAlert());">Success</button>
     <button is="vl-button" onclick="demoToaster().push(newWarningAlert());">Warning</button>
     <button is="vl-button" onclick="demoToaster().push(newErrorAlert());">Error</button>
+    <button is="vl-button" onclick="demoToaster().push(newCallOfActionAlert());">Call of action</button>
   </div>
 </div>
 <div>
