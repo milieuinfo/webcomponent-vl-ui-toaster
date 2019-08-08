@@ -31,7 +31,7 @@
     "@govflanders/vl-ui-icon": "3.7.2",
     "wct-browser-legacy": "1.0.2",
     "web-component-tester": "6.9.2",
-    "vl-ui-alert": "^1.0.11",
+    "vl-ui-alert": "1.1.0",
     "vl-ui-button": "1.1.3",
     "replace": "1.0.0",
     "np": "3.0.4",
