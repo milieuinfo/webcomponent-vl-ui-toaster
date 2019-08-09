@@ -14,3 +14,8 @@
 @import "vl-ui-util/src/scss/util";
 
 @import "vl-ui-toaster/src/scss/toaster";
+
+vl-alert {
+    display: block;
+    margin: 1rem;
+}
