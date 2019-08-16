@@ -32,6 +32,8 @@ import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
  * @property {string} bottom-left - Positioneert de toaster op linkeronderhoek.
  * @property {string} bottom-right - Posistioneert de toaster op rechteronderhoek.
  * @property {string} fadeout - Elke alert verdwijnt automatisch 5 seconden na openen.
+ * 
+ * @version <a href="http://www.github.com/milieuinfo/webcomponent-vl-ui-toaster/releases/latest">Release notes</a>
  */
 export class VlToaster extends NativeVlElement(HTMLDivElement) {
   static get _observedAttributes() {
