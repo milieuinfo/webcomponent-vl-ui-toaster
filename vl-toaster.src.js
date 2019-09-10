@@ -23,7 +23,7 @@ import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
 /**
  * VlToaster
  * @class
- * @classdesc De toaster component is een container voor een aantal gestapelde alerts. <a href="demo/vl-toaster.html">Demo</a>.
+ * @classdesc De toaster component is een container voor een aantal gestapelde alerts.
  *
  * @Extends VlElement
  *
@@ -32,6 +32,10 @@ import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
  * @property {string} bottom-left - Positioneert de toaster op linkeronderhoek.
  * @property {string} bottom-right - Posistioneert de toaster op rechteronderhoek.
  * @property {string} fadeout - Elke alert verdwijnt automatisch 5 seconden na openen.
+ * 
+ * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-toaster/releases/latest|Release notes}
+ * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-toaster/issues|Issues}
+ * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-toaster.html|Demo}
  */
 export class VlToaster extends NativeVlElement(HTMLDivElement) {
   static get _observedAttributes() {

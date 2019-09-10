@@ -1,10 +1,10 @@
 {
   "name": "vl-ui-toaster",
-  "version": "1.0.2",
+  "version": "1.0.5",
   "description": "vl-ui-toaster",
   "main": "vl-toaster",
   "scripts": {
-    "prepare": "npm run prepare:util",
+    "prepare": "npm update --dev vl-ui-util && npm run prepare:util",
     "prepare:util": "npm explore vl-ui-util -- npm run util",
     "test": "wct -l chrome,firefox --npm",
     "release": "np",
@@ -30,11 +30,11 @@
     "@govflanders/vl-ui-toaster": "3.7.2",
     "@govflanders/vl-ui-util": "3.7.2",
     "np": "3.1.0",
-    "replace": "1.0.0",
+    "replace": "1.1.0",
     "uglify-es": "github:mishoo/UglifyJS2#harmony",
     "vl-ui-alert": "^1.3.4",
     "vl-ui-button": "1.1.3",
-    "vl-ui-util": "^1.2.15",
+    "vl-ui-util": "^1.2.23",
     "wct-browser-legacy": "1.0.2",
     "web-component-tester": "6.9.2"
   },
