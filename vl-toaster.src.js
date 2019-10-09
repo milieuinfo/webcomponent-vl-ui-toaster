@@ -1,24 +1,11 @@
-import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
-(() => {
-  loadScript('util.js',
-      '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js', () => {
-        loadScript('core.js',
-            '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js', () => {
-              loadScript('vl-toaster.js',
-                  '../dist/toaster.js');
-            });
-      });
+import {NativeVlElement, define, awaitScript, awaitUntil} from "/node_modules/vl-ui-core/vl-core.js";
 
-  function loadScript(id, src, onload) {
-    if (!document.head.querySelector('#' + id)) {
-      let script = document.createElement('script');
-      script.setAttribute('id', id);
-      script.setAttribute('src', src);
-      script.onload = onload;
-      document.head.appendChild(script);
-    }
-  }
-})();
+Promise.all([
+  awaitScript('util', '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js'),
+  awaitScript('core', '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js'),
+  awaitScript('toaster', '../dist/toaster.js'),
+  awaitUntil(() => window.vl && window.vl.toaster)
+]).then(() => define('vl-toaster', VlToaster, {extends: 'div'}));
 
 /**
  * VlToaster
@@ -105,15 +92,8 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
   };
 
   _dress() {
-    (async () => {
-      while(!window.vl || !window.vl.toaster) {
-        await new Promise(resolve => setTimeout(resolve, 100));
-      }
-      if (!this._dressed) {
-        vl.toaster._dress(this);
-      }
-    })();
+    if (!this._dressed) {
+      vl.toaster.dress(this);
+    }
   }
 }
-
-define('vl-toaster', VlToaster, {extends: 'div'});
