@@ -1,7 +1,7 @@
 {
   "name": "vl-ui-toaster",
   "version": "1.0.8",
-  "description": "vl-ui-toaster",
+  "description": "De toaster component is een container voor een aantal gestapelde alerts.",
   "main": "vl-toaster",
   "scripts": {
     "prepare": "npm update --dev vl-ui-util && npm run prepare:util",
