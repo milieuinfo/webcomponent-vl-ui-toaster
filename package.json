@@ -2,7 +2,26 @@
   "name": "vl-ui-toaster",
   "version": "1.0.9",
   "description": "De toaster component is een container voor een aantal gestapelde alerts.",
-  "main": "index.js",
+  "author": "DIDM",
+  "license": "MIT",
+  "main": "./src/index.js",
+  "exports": {
+    "require": "./index.js",
+    "import": "./src/index.js",
+    "node": "./index.js",
+    "default": "./index.js"
+  },
+  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-toaster#readme",
+  "bugs": {
+    "url": "https://github.com/milieuinfo/webcomponent-vl-ui-toaster/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-toaster.git"
+  },
+  "publishConfig": {
+    "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
+  },
   "scripts": {
     "prepare": "npm update --dev vl-ui-util && npm run prepare:util",
     "prepare:util": "npm explore vl-ui-util -- npm run util",
@@ -20,20 +39,30 @@
     "test:e2e:safari": "mocha --safari",
     "test:server:start": "http-server &",
     "release": "np",
-    "release:prepare": "npm run release:prepare:build && npm run release:prepare:imports && npm run release:prepare:css && npm run release:prepare:commit",
-    "release:prepare:build": "minify *.src.js > vl-toaster.js",
-    "release:prepare:imports": "replace '../dist/toaster.js' '/node_modules/vl-ui-toaster/dist/toaster.js' vl-toaster.js",
-    "release:prepare:css": "replace '\\.\\./style.css' '/node_modules/vl-ui-toaster/style.css' vl-toaster.js",
-    "release:prepare:commit": "git add -f vl-toaster.js && git commit --amend --no-edit && git pull",
+    "release:prepare": "npm run release:prepare:build && npm run release:prepare:commit",
+    "release:prepare:build": "npm run release:prepare:build:es6 && npm run release:prepare:build:es6:min && npm run release:prepare:build:node",
+    "release:prepare:build:es6": "npm run release:prepare:build:es6:copy && npm run release:prepare:build:es6:replace",
+    "release:prepare:build:es6:copy": "cp -R -f ./src/*.src.js ./vl-toaster.js",
+    "release:prepare:build:es6:replace": "replace '\\.\\./style.css' '/node_modules/vl-ui-toaster/style.css' vl-toaster.js",
+    "release:prepare:build:es6:min": "npm run release:prepare:build:es6:min:copy && npm run release:prepare:build:es6:min:explode && npm run release:prepare:build:es6:min:minify",
+    "release:prepare:build:es6:min:copy": "cp -R -f ./src/*.src.js ./vl-toaster.tmp.min.js",
+    "release:prepare:build:es6:min:explode": "npm explore vl-ui-util -- npm run explode -- --fileName=vl-toaster.tmp.min.js",
+    "release:prepare:build:es6:min:minify": "minify ./vl-toaster.tmp.min.js > ./vl-toaster.min.js && rm -rf vl-toaster.tmp.min.js",
+    "release:prepare:build:node": "npm run release:prepare:build:node:copy && npm run release:prepare:build:node:replace && npm run release:prepare:build:node:explode",
+    "release:prepare:build:node:copy": "cp -R -f ./src/*.src.js .",
+    "release:prepare:build:node:replace": "npm run release:prepare:build:node:replace:src && npm run release:prepare:build:node:replace:dist",
+    "release:prepare:build:node:replace:src": "replace  '/node_modules/vl-ui-(.*)/vl-(.*).js' 'vl-ui-$2' vl-toaster.src.js",
+    "release:prepare:build:node:replace:dist": "replace  '/node_modules/(.*)/vl-(.*).js' 'vl-ui-$2.js' vl-toaster.src.js",
+    "release:prepare:build:node:explode": "npm explore vl-ui-util -- npm run explode -- --fileName=vl-toaster.src.js",
+    "release:prepare:commit": "git add -f . && git commit --amend --no-edit && git pull",
     "release:testless": "np --yolo",
     "demo": "http-server"
   },
   "dependencies": {
-    "chromedriver": "^79.0.0",
-    "vl-ui-core": "^3.1.0"
+    "vl-ui-core": "^4.0.0"
   },
   "peerDependencies": {
-    "vl-ui-core": "^2.0.0"
+    "vl-ui-core": "^4.0.0"
   },
   "devDependencies": {
     "@govflanders/vl-ui-alert": "3.9.1",
@@ -42,21 +71,8 @@
     "@govflanders/vl-ui-icon": "3.9.1",
     "@govflanders/vl-ui-toaster": "3.9.1",
     "@govflanders/vl-ui-util": "3.9.1",
-    "vl-ui-alert": "^1.3.9",
-    "vl-ui-button": "^2.0.0",
-    "vl-ui-util": "^3.4.4"
-  },
-  "publishConfig": {
-    "registry": "http://artifactory-pr-build.lb.cumuli.be:8081/artifactory/api/npm/acd-npm/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/milieuinfo/webcomponent-vl-ui-toaster.git"
-  },
-  "author": "DIDM",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/milieuinfo/webcomponent-vl-ui-toaster/issues"
-  },
-  "homepage": "https://github.com/milieuinfo/webcomponent-vl-ui-toaster#readme"
+    "vl-ui-alert": "^2.0.0",
+    "vl-ui-button": "^3.0.0",
+    "vl-ui-util": "^4.0.0"
+  }
 }

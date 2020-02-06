@@ -1,5 +1,5 @@
 
-const { assert, driver } = require('vl-ui-core').Test;
+const { assert, driver } = require('vl-ui-core').Test.Setup;
 const VlToasterPage = require('./pages/vl-toaster.page');
 
 describe('vl-toaster', async () => {
@@ -7,5 +7,9 @@ describe('vl-toaster', async () => {
 
     before(() => {
         return vlToasterPage.load();
+    });
+    
+    after(async () => { 
+        return driver.quit();
     });
 });
