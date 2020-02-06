@@ -1,6 +1,6 @@
 const VlToaster = require('../components/vl-toaster');
-const { Page } = require('vl-ui-core');
-const { Config } = require('vl-ui-core');
+const { Page } = require('vl-ui-core').Test;
+const { Config } = require('vl-ui-core').Test;
 
 class VlToasterPage extends Page {
     async _getToaster(selector) {

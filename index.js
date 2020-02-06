@@ -1,3 +1,5 @@
 module.exports = { 
-    'VlToaster': require('./test/e2e/components/vl-toaster')
+    Test: {
+    	VlToaster: require('./test/e2e/components/vl-toaster.js')
+    }
 }
