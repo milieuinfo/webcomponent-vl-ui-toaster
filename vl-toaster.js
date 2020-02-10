@@ -1,7 +1,7 @@
 import {NativeVlElement, define} from "/node_modules/vl-ui-core/vl-core.js";
 import '/node_modules/@govflanders/vl-ui-util/dist/js/util.min.js';
 import '/node_modules/@govflanders/vl-ui-core/dist/js/core.min.js';
-import '/node_modules/vl-ui-toaster/dist/toaster.js';
+import '/dist/toaster.js';
 
 /**
  * VlToaster
