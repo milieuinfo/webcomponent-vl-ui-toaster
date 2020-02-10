@@ -1,11 +1,7 @@
-import {NativeVlElement, define, awaitScript, awaitUntil} from "vl-ui-core";
-
-Promise.all([
-  awaitScript('util', 'vl-ui-ui-util/dist/js/util.min.js'),
-  awaitScript('core', 'vl-ui-ui-core/dist/js/core.min.js'),
-  awaitScript('toaster', '../../dist/toaster.js'),
-  awaitUntil(() => window.vl && window.vl.toaster)
-]).then(() => define('vl-toaster', VlToaster, {extends: 'div'}));
+import {NativeVlElement, define} from "vl-ui-core";
+import 'vl-ui-ui-util/dist/js/util.min.js';
+import 'vl-ui-ui-core/dist/js/core.min.js';
+import '/dist/toaster.js';
 
 /**
  * VlToaster
@@ -98,3 +94,4 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
   }
 }
 
+define('vl-toaster', VlToaster, {extends: 'div'});
