@@ -3,7 +3,7 @@
       ? module.exports = factory() :
       typeof define === 'function' && define.amd ? define(factory) :
           (global.toaster = factory());
-}(this, (function () {
+}(this || window, (function () {
   'use strict';
 
   function _classCallCheck(instance, Constructor) {
