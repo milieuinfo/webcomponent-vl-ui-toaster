@@ -42,10 +42,6 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
     return 'vl-toaster--';
   }
 
-  get _stylePath() {
-    return '/node_modules/vl-ui-toaster/style.css';
-  }
-
   get toasterFadeClass() {
     return 'vl-alert--fade-out';
   }
