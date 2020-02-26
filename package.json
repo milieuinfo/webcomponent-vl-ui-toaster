@@ -1,6 +1,6 @@
 {
   "name": "vl-ui-toaster",
-  "version": "2.0.2",
+  "version": "3.0.0",
   "description": "De toaster component is een container voor een aantal gestapelde alerts.",
   "author": "DIDM",
   "license": "MIT",
