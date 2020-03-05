@@ -24,7 +24,7 @@ class VlToaster extends VlElement {
 
     async getAlerts() {
         const children = await this.findElements(By.css('vl-alert'));
-        if(children.length > 0) {
+        if (children.length > 0) {
             const { VlAlert } = require('vl-ui-alert').Test;
             return Promise.all(children.map(child => new VlAlert(this.driver, child)));
         } else {
