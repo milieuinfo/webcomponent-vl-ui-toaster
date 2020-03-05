@@ -78,11 +78,10 @@
         &lt;/script&gt;
 
         &lt;div id="demo-toaster" is="vl-toaster"&gt;&lt;/div&gt;
-          &lt;button is="vl-button" onclick="demoToaster().push(newSuccessAlert());"&gt;Success&lt;/button&gt;
-          &lt;button is="vl-button" onclick="demoToaster().push(newWarningAlert());"&gt;Warning&lt;/button&gt;
-          &lt;button is="vl-button" onclick="demoToaster().push(newErrorAlert());"&gt;Error&lt;/button&gt;
-          &lt;button is="vl-button" onclick="demoToaster().push(newCtaAlert());"&gt;Call of action&lt;/button&gt;
-        &lt;/div&gt;
+        &lt;button is="vl-button" onclick="demoToaster().push(newSuccessAlert());"&gt;Success&lt;/button&gt;
+        &lt;button is="vl-button" onclick="demoToaster().push(newWarningAlert());"&gt;Warning&lt;/button&gt;
+        &lt;button is="vl-button" onclick="demoToaster().push(newErrorAlert());"&gt;Error&lt;/button&gt;
+        &lt;button is="vl-button" onclick="demoToaster().push(newCtaAlert());"&gt;Call of action&lt;/button&gt;
       </code>
     </pre>
     <div class="demo">
@@ -91,11 +90,10 @@
       </script>
 
       <div id="demo-toaster" is="vl-toaster"></div>
-        <button is="vl-button" onclick="demoToaster().push(newSuccessAlert());">Success</button>
-        <button is="vl-button" onclick="demoToaster().push(newWarningAlert());">Warning</button>
-        <button is="vl-button" onclick="demoToaster().push(newErrorAlert());">Error</button>
-        <button is="vl-button" onclick="demoToaster().push(newCtaAlert());">Call of action</button>
-      </div>
+      <button id="demo-toaster-success-alert-button" is="vl-button" onclick="demoToaster().push(newSuccessAlert());">Success</button>
+      <button id="demo-toaster-warning-alert-button" is="vl-button" onclick="demoToaster().push(newWarningAlert());">Warning</button>
+      <button id="demo-toaster-error-alert-button" is="vl-button" onclick="demoToaster().push(newErrorAlert());">Error</button>
+      <button id="demo-toaster-cta-alert-button" is="vl-button" onclick="demoToaster().push(newCtaAlert());">Call of action</button>
     </div>
 
     <div>
@@ -156,8 +154,8 @@
         </script>
 
         <div id="fadeout-toaster" is="vl-toaster" fadeout></div>
-        <button is="vl-button" onclick="fadeoutToaster().push(newErrorAlert());">Error</button>
-        <button is="vl-button" onclick="fadeoutToaster().push(newSuccessAlert());">Success</button>
+        <button id="fadeout-toaster-error-alert-button" is="vl-button" onclick="fadeoutToaster().push(newErrorAlert());">Error</button>
+        <button id="fadeout-toaster-success-alert-button" is="vl-button" onclick="fadeoutToaster().push(newSuccessAlert());">Success</button>
       </div>
     </div>
   </body>
