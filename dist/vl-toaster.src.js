@@ -1,4 +1,4 @@
-import {NativeVlElement, define} from "/node_modules/vl-ui-core/dist/vl-core.js";
+import {NativeVlElement, define} from 'vl-ui-core';
 import '@govflanders/vl-ui-util/dist/js/util.js';
 import '@govflanders/vl-ui-core/dist/js/core.js';
 import 'vl-ui-toaster/lib/toaster.js';
