@@ -47,8 +47,6 @@
 
 <script>
   suite('vl-toaster', () => {
-    const should = chai.should();
-
     setup((done) => {
       customElements.whenDefined('vl-toaster').then(done);
     });
@@ -79,13 +77,13 @@
     });
 
     test('bij fadeout mode verdwijnt alert automatisch na (ongeveer) 5 seconden', (done) => {
-      var element = fixture('vl-toaster-fadeout-fixture');
+      const element = fixture('vl-toaster-fadeout-fixture');
       element.push(document.createElement('vl-alert'));
       assert.equal(element.childNodes.length, 1);
-      //de alert verdwijnt automatisch na 5 seconden
+      // de alert verdwijnt automatisch na 5 seconden
       setTimeout(() => {
         assert.equal(element.childNodes.length, 0);
-        done()
+        done();
       }, 6000);
     });
   });
