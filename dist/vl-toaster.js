@@ -1,4 +1,4 @@
-import {NativeVlElement, define} from "/node_modules/vl-ui-core/dist/vl-core.js";
+import {nativeVlElement, define} from '/node_modules/vl-ui-core/dist/vl-core.js';
 import '/node_modules/@govflanders/vl-ui-util/dist/js/util.js';
 import '/node_modules/@govflanders/vl-ui-core/dist/js/core.js';
 import '/node_modules/vl-ui-toaster/lib/toaster.js';
@@ -8,32 +8,33 @@ import '/node_modules/vl-ui-toaster/lib/toaster.js';
  * @class
  * @classdesc De toaster component is een container voor een aantal gestapelde alerts.
  *
- * @Extends VlElement
+ * @extends HTMLDivElement
+ * @mixin nativeVlElement
  *
  * @property {string} top-left - Positioneert de toaster op linkerbovenhoek.
  * @property {string} top-right - Positioneert de toaster op rechterbovenhoek.
  * @property {string} bottom-left - Positioneert de toaster op linkeronderhoek.
  * @property {string} bottom-right - Posistioneert de toaster op rechteronderhoek.
  * @property {string} fadeout - Elke alert verdwijnt automatisch 5 seconden na openen.
- * 
+ *
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-toaster/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-toaster/issues|Issues}
  * @see {@link https://webcomponenten.omgeving.vlaanderen.be/demo/vl-toaster.html|Demo}
  */
-export class VlToaster extends NativeVlElement(HTMLDivElement) {
+export class VlToaster extends nativeVlElement(HTMLDivElement) {
   static get _observedAttributes() {
     return ['fadeout'];
   }
 
   static get _observedClassAttributes() {
-    return ['top-left', 'top-right', 'bottom-left', 'bottom-right']
+    return ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
   }
 
   static get _dressedAttributeName() {
     return 'data-vl-toaster-dressed';
   }
 
-  connectedCallback(){
+  connectedCallback() {
     this.classList.add('vl-toaster');
     this._dress();
   }
@@ -55,7 +56,7 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
    * Toont een alert
    *
    * @return {void}
-   * @param alert
+   * @param {HTMLElement} alert
    */
   push(alert) {
     this._element.appendChild(alert);
@@ -66,13 +67,13 @@ export class VlToaster extends NativeVlElement(HTMLDivElement) {
    *
    * Verwijdert een alert uit hun parent
    * @return {void}
-   * @param alert
+   * @param {HTMLElement} alert
    */
-  closeAlert(alert){
-      vl.util.addClass(alert, this.toasterFadeClass);
-      window.setTimeout(function () {
-        alert.remove();
-      }, 300);
+  closeAlert(alert) {
+    vl.util.addClass(alert, this.toasterFadeClass);
+    window.setTimeout(function() {
+      alert.remove();
+    }, 300);
   }
 
   _fadeoutChangedCallback(oldValue, newValue) {

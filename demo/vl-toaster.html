@@ -18,7 +18,10 @@
     <vl-demo-page data-vl-webcomponent="vl-taster">
       <vl-demo data-vl-title="Toaster">
         <script>
-          const demoToaster = () => { return document.querySelector("#demo-toaster") };
+          // eslint-disable-next-line no-unused-vars
+          const demoToaster = () => {
+            return document.querySelector('#demo-toaster');
+          };
         </script>
 
         <div id="demo-toaster" is="vl-toaster"></div>
@@ -38,10 +41,25 @@
 
       <vl-demo data-vl-title="Positioneren">
         <script>
-          const topLeftToaster = () => { return document.querySelector("#top-left-toaster") };
-          const topRightToaster = () => { return document.querySelector("#top-right-toaster") };
-          const bottomLeftToaster = () => { return document.querySelector("#bottom-left-toaster") };
-          const bottomRightToaster = () => { return document.querySelector("#bottom-right-toaster") };
+          // eslint-disable-next-line no-unused-vars
+          const topLeftToaster = () => {
+            return document.querySelector('#top-left-toaster');
+          };
+
+          // eslint-disable-next-line no-unused-vars
+          const topRightToaster = () => {
+            return document.querySelector('#top-right-toaster');
+          };
+
+          // eslint-disable-next-line no-unused-vars
+          const bottomLeftToaster = () => {
+            return document.querySelector('#bottom-left-toaster');
+          };
+
+          // eslint-disable-next-line no-unused-vars
+          const bottomRightToaster = () => {
+            return document.querySelector('#bottom-right-toaster');
+          };
         </script>
 
         <div id="top-left-toaster" is="vl-toaster" top-left></div>
@@ -56,7 +74,10 @@
 
       <vl-demo data-vl-title="Fadeout">
         <script>
-          const fadeoutToaster = () => { return document.querySelector("#fadeout-toaster") };
+          // eslint-disable-next-line no-unused-vars
+          const fadeoutToaster = () => {
+            return document.querySelector('#fadeout-toaster');
+          };
         </script>
 
         <div id="fadeout-toaster" is="vl-toaster" fadeout></div>
@@ -72,10 +93,25 @@
 
       <vl-demo data-vl-title="Alerts">
         <script>
-          const newWarningAlert = () => { return document.querySelector('#alert-1').cloneNode(true); }
-          const newErrorAlert = () => { return document.querySelector('#alert-2').cloneNode(true); }
-          const newSuccessAlert = () => { return document.querySelector('#alert-3').cloneNode(true); }
-          const newCtaAlert = () => { return document.querySelector('#alert-4').cloneNode(true); }
+          // eslint-disable-next-line no-unused-vars
+          const newWarningAlert = () => {
+            return document.querySelector('#alert-1').cloneNode(true);
+          };
+
+          // eslint-disable-next-line no-unused-vars
+          const newErrorAlert = () => {
+            return document.querySelector('#alert-2').cloneNode(true);
+          };
+
+          // eslint-disable-next-line no-unused-vars
+          const newSuccessAlert = () => {
+            return document.querySelector('#alert-3').cloneNode(true);
+          };
+
+          // eslint-disable-next-line no-unused-vars
+          const newCtaAlert = () => {
+            return document.querySelector('#alert-4').cloneNode(true);
+          };
         </script>
 
         <vl-alert id="alert-1" type="warning" icon="alert-triangle" title="Technische storing" closable>
