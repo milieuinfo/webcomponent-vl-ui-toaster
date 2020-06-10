@@ -57,6 +57,6 @@
     "@govflanders/vl-ui-toaster": "3.9.1",
     "vl-ui-alert": "^3.0.1",
     "vl-ui-button": "^5.0.0",
-    "vl-ui-util": "^5.2.0"
+    "vl-ui-util": "^5.2.3"
   }
 }
