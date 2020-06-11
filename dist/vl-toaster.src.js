@@ -9,7 +9,6 @@ import 'vl-ui-toaster/lib/toaster.js';
  * @classdesc De toaster component is een container voor een aantal gestapelde alerts.
  *
  * @extends HTMLDivElement
- * @mixin nativeVlElement
  *
  * @property {string} top-left - Positioneert de toaster op linkerbovenhoek.
  * @property {string} top-right - Positioneert de toaster op rechterbovenhoek.
