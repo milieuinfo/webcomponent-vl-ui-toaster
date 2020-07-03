@@ -46,7 +46,7 @@
     "@govflanders/vl-ui-alert": "^3.9.2",
     "@govflanders/vl-ui-button": "3.9.2",
     "@govflanders/vl-ui-core": "^3.9.2",
-    "@govflanders/vl-ui-icon": "3.9.2",
+    "@govflanders/vl-ui-icon": "3.10.1",
     "@govflanders/vl-ui-toaster": "3.9.1",
     "vl-ui-alert": "^3.0.5",
     "vl-ui-button": "^5.0.5",
