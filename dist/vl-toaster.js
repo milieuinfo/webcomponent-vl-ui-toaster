@@ -59,7 +59,7 @@ export class VlToaster extends nativeVlElement(HTMLDivElement) {
    */
   push(alert) {
     this._element.appendChild(alert);
-    alert.disableClosable();
+    // alert.disableClosable();
   }
 
   /**
