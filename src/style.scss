@@ -9,13 +9,18 @@
 @import "vl-ui-core/src/scss/core";
 
 // ==========================================================================
+// Component
+// ==========================================================================
+@import "vl-ui-toaster/src/scss/toaster";
+
+// ==========================================================================
 // Util
 // ==========================================================================
 @import "vl-ui-util/src/scss/util";
 
-@import "vl-ui-toaster/src/scss/toaster";
-
-vl-alert {
-    display: block;
-    margin: 1rem;
+[is="vl-toaster"] {
+    vl-alert {
+        display: block;
+        margin: 1rem;
+    }
 }

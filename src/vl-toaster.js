@@ -9,12 +9,13 @@ import '/lib/toaster.js';
  * @classdesc De toaster component is een container voor een aantal gestapelde alerts.
  *
  * @extends HTMLDivElement
+ * @mixes nativeVlElement
  *
- * @property {string} top-left - Positioneert de toaster op linkerbovenhoek.
- * @property {string} top-right - Positioneert de toaster op rechterbovenhoek.
- * @property {string} bottom-left - Positioneert de toaster op linkeronderhoek.
- * @property {string} bottom-right - Posistioneert de toaster op rechteronderhoek.
- * @property {string} fadeout - Elke alert verdwijnt automatisch 5 seconden na openen.
+ * @property {string} data-vl-top-left - Positioneert de toaster op linkerbovenhoek.
+ * @property {string} data-vl-top-right - Positioneert de toaster op rechterbovenhoek.
+ * @property {string} data-vl-bottom-left - Positioneert de toaster op linkeronderhoek.
+ * @property {string} data-vl-bottom-right - Posistioneert de toaster op rechteronderhoek.
+ * @property {string} data-vl-fadeout - Elke alert verdwijnt automatisch 5 seconden na openen.
  *
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-toaster/releases/latest|Release notes}
  * @see {@link https://www.github.com/milieuinfo/webcomponent-vl-ui-toaster/issues|Issues}
@@ -59,7 +60,6 @@ export class VlToaster extends nativeVlElement(HTMLDivElement) {
    */
   push(alert) {
     this._element.appendChild(alert);
-    alert.disableClosable();
   }
 
   /**
