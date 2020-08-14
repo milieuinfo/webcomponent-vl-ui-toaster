@@ -5,16 +5,18 @@
     <meta charset="UTF-8">
     <title>vl-toaster voorbeeld</title>
     <script type="module" src="/node_modules/vl-ui-demo/dist/vl-demo-all.js"></script>
-
-    <script type="module" src="/src/vl-toaster.js"></script>
+    <script type="module" src="/node_modules/vl-ui-body/dist/vl-body.js"></script>
     <script type="module" src="/node_modules/vl-ui-alert/dist/vl-alert.js"></script>
     <script type="module" src="/node_modules/vl-ui-button/dist/vl-button.js"></script>
 
+    <script type="module" src="/src/vl-toaster.js"></script>
+
     <link rel="stylesheet" type="text/css" href="/src/style.css" />
+    <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-body/dist/style.css" />
     <link rel="stylesheet" type="text/css" href="/node_modules/vl-ui-button/dist/style.css" />
   </head>
 
-  <body>
+  <body is="vl-body">
     <vl-demo-page data-vl-webcomponent="vl-taster">
       <vl-demo data-vl-title="Toaster">
         <script>
@@ -62,10 +64,10 @@
           };
         </script>
 
-        <div id="top-left-toaster" is="vl-toaster" top-left></div>
-        <div id="top-right-toaster" is="vl-toaster" top-right></div>
-        <div id="bottom-left-toaster" is="vl-toaster" bottom-left></div>
-        <div id="bottom-right-toaster" is="vl-toaster" bottom-right></div>
+        <div id="top-left-toaster" is="vl-toaster" data-vl-top-left></div>
+        <div id="top-right-toaster" is="vl-toaster" data-vl-top-right></div>
+        <div id="bottom-left-toaster" is="vl-toaster" data-vl-bottom-left></div>
+        <div id="bottom-right-toaster" is="vl-toaster" data-vl-bottom-right></div>
         <button is="vl-button" onclick="topLeftToaster().push(newSuccessAlert());">Top-left</button>
         <button is="vl-button" onclick="topRightToaster().push(newSuccessAlert());">Top-right</button>
         <button is="vl-button" onclick="bottomLeftToaster().push(newSuccessAlert());">Bottom-left</button>
@@ -75,18 +77,14 @@
       <vl-demo data-vl-title="Fadeout">
         <script>
           // eslint-disable-next-line no-unused-vars
-          const fadeoutToaster = () => {
-            return document.querySelector('#fadeout-toaster');
-          };
+          const fadeoutToaster = () => document.querySelector('#fadeout-toaster');
         </script>
 
-        <div id="fadeout-toaster" is="vl-toaster" fadeout></div>
-        <button id="fadeout-toaster-error-alert-button" is="vl-button"
-          onclick="fadeoutToaster().push(newErrorAlert());">
+        <div id="fadeout-toaster" is="vl-toaster" data-vl-fadeout></div>
+        <button id="fadeout-toaster-error-alert-button" is="vl-button" onclick="fadeoutToaster().push(newErrorAlert());">
           Error
         </button>
-        <button id="fadeout-toaster-success-alert-button" is="vl-button"
-          onclick="fadeoutToaster().push(newSuccessAlert());">
+        <button id="fadeout-toaster-success-alert-button" is="vl-button" onclick="fadeoutToaster().push(newSuccessAlert());">
           Success
         </button>
       </vl-demo>
@@ -94,36 +92,28 @@
       <vl-demo data-vl-title="Alerts">
         <script>
           // eslint-disable-next-line no-unused-vars
-          const newWarningAlert = () => {
-            return document.querySelector('#alert-1').cloneNode(true);
-          };
+          const newWarningAlert = () => document.querySelector('#alert-1').cloneNode(true);
 
           // eslint-disable-next-line no-unused-vars
-          const newErrorAlert = () => {
-            return document.querySelector('#alert-2').cloneNode(true);
-          };
+          const newErrorAlert = () => document.querySelector('#alert-2').cloneNode(true);
 
           // eslint-disable-next-line no-unused-vars
-          const newSuccessAlert = () => {
-            return document.querySelector('#alert-3').cloneNode(true);
-          };
+          const newSuccessAlert = () => document.querySelector('#alert-3').cloneNode(true);
 
           // eslint-disable-next-line no-unused-vars
-          const newCtaAlert = () => {
-            return document.querySelector('#alert-4').cloneNode(true);
-          };
+          const newCtaAlert = () => document.querySelector('#alert-4').cloneNode(true);
         </script>
 
-        <vl-alert id="alert-1" type="warning" icon="alert-triangle" title="Technische storing" closable>
+        <vl-alert id="alert-1" data-vl-type="warning" data-vl-icon="warning" data-vl-title="Technische storing" data-vl-closable>
           <p>Door een technische storing is dit loket tijdelijk niet beschikbaar.</p>
         </vl-alert>
-        <vl-alert id="alert-2" type="error" icon="warning" title="Error" closable>
+        <vl-alert id="alert-2" data-vl-type="error" data-vl-icon="warning" data-vl-title="Error" data-vl-closable>
           <p>Er is een fout opgetreden.</p>
         </vl-alert>
-        <vl-alert id="alert-3" type="success" icon="check" title="Gelukt" closable>
+        <vl-alert id="alert-3" data-vl-type="success" data-vl-icon="check" data-vl-title="Gelukt" data-vl-closable>
           <p>Wij hebben uw melding goed ontvangen en nemen deze spoedig in behandeling.</p>
         </vl-alert>
-        <vl-alert id="alert-4" type="cta" icon="info" title="Opgelet!" closable>
+        <vl-alert id="alert-4" data-vl-type="cta" data-vl-icon="info" data-vl-title="Opgelet!" data-vl-closable>
           <p>U heeft geen rechten om deze actie uit te voeren. <a href="#">Vraag rechten aan</a>.</p>
           <button slot="actions" is="vl-button" id="b1">Fout melden</button>
         </vl-alert>
