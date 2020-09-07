@@ -81,12 +81,9 @@
         </script>
 
         <div id="fadeout-toaster" is="vl-toaster" data-vl-fadeout></div>
-        <button id="fadeout-toaster-error-alert-button" is="vl-button" onclick="fadeoutToaster().push(newErrorAlert());">
-          Error
-        </button>
-        <button id="fadeout-toaster-success-alert-button" is="vl-button" onclick="fadeoutToaster().push(newSuccessAlert());">
-          Success
-        </button>
+        <button id="fadeout-toaster-error-alert-button" is="vl-button" onclick="fadeoutToaster().push(newErrorAlert());">Error</button>
+        <button id="fadeout-toaster-success-alert-button" is="vl-button" onclick="fadeoutToaster().push(newSuccessAlert());">Success</button>
+        <button id="fadeout-toaster-warning-alerts-button" is="vl-button" onclick="fadeoutToaster().push(newWarningAlert()); fadeoutToaster().push(newWarningAlert());">Warnings</button>
       </vl-demo>
 
       <vl-demo data-vl-title="Alerts">

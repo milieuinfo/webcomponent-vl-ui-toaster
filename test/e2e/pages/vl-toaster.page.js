@@ -55,6 +55,10 @@ class VlToasterPage extends Page {
   async getFadeoutToasterErrorAlertButton() {
     return this._getButton('#fadeout-toaster-error-alert-button');
   }
+
+  async getFadeoutToasterWarningAlertsButton() {
+    return this._getButton('#fadeout-toaster-warning-alerts-button');
+  }
 }
 
 module.exports = VlToasterPage;
