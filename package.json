@@ -49,8 +49,8 @@
     "@govflanders/vl-ui-icon": "^3.11.5",
     "@govflanders/vl-ui-toaster": "^3.11.5",
     "vl-ui-alert": "^4.0.0",
-    "vl-ui-button": "^5.0.6",
     "vl-ui-body": "^1.0.3",
-    "vl-ui-util": "^5.2.12"
+    "vl-ui-button": "^5.0.6",
+    "vl-ui-util": "^5.2.15"
   }
 }
