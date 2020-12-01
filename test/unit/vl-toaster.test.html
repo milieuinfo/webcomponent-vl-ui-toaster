@@ -49,7 +49,7 @@
   <script>
     suite('vl-toaster', () => {
       setup((done) => {
-        customElements.whenDefined('vl-toaster').then(done);
+        customElements.whenDefined('vl-toaster').then(() => done());
       });
 
       test('heeft de klass vl-toaster class', () => {
