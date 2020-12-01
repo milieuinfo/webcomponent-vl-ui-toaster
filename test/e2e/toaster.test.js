@@ -2,10 +2,12 @@ const {assert, getDriver} = require('vl-ui-core').Test.Setup;
 const VlToasterPage = require('./pages/vl-toaster.page');
 
 describe('vl-toaster', async () => {
+  let driver;
   let vlToasterPage;
 
   before(() => {
-    vlToasterPage = new VlToasterPage(getDriver());
+    driver = getDriver();
+    vlToasterPage = new VlToasterPage(driver);
     return vlToasterPage.load();
   });
 
