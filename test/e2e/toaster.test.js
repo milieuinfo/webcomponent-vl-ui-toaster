@@ -1,14 +1,15 @@
-const {assert, driver} = require('vl-ui-core').Test.Setup;
+const {assert, getDriver} = require('vl-ui-core').Test.Setup;
 const VlToasterPage = require('./pages/vl-toaster.page');
 
 describe('vl-toaster', async () => {
-  const vlToasterPage = new VlToasterPage(driver);
+  let vlToasterPage;
 
   before(() => {
+    vlToasterPage = new VlToasterPage(getDriver());
     return vlToasterPage.load();
   });
 
-  it('Als gebruiker kan ik alerts in een toaster zien', async () => {
+  it('als gebruiker kan ik alerts in een toaster zien', async () => {
     const toaster = await vlToasterPage.getStandardToaster();
     await assert.eventually.isFalse(toaster.shouldFadeOut());
     await assert.eventually.isFalse(toaster.isLocatedBottomLeft());
@@ -33,7 +34,7 @@ describe('vl-toaster', async () => {
     await assert.eventually.isTrue(warningAlert.isWarning());
   });
 
-  it('Als gebruiker kan ik een toaster in alle hoeken van de pagina zien', async () => {
+  it('als gebruiker kan ik een toaster in alle hoeken van de pagina zien', async () => {
     const bottomLeftToaster = await vlToasterPage.getBottomLeftToaster();
     await assert.eventually.isTrue(bottomLeftToaster.isLocatedBottomLeft());
     await assert.eventually.isFalse(bottomLeftToaster.isLocatedBottomRight());
@@ -59,7 +60,7 @@ describe('vl-toaster', async () => {
     await assert.eventually.isTrue(topRightToaster.isLocatedTopRight());
   });
 
-  it('Als gebruiker kan ik zien dat alerts na enkele seconden verdwijnen indien de toaster zo geconfigureerd werd', async () => {
+  it('als gebruiker kan ik zien dat alerts na enkele seconden verdwijnen indien de toaster zo geconfigureerd werd', async () => {
     const toaster = await vlToasterPage.getFadeoutToaster();
     await assert.eventually.isTrue(toaster.shouldFadeOut());
 
