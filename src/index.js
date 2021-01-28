@@ -1,3 +1,1 @@
-module.exports = {
-  VlToaster: require('../dist/vl-toaster.src.js').VlToaster,
-};
+export * from '../dist/vl-toaster.src.js';
