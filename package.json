@@ -37,10 +37,10 @@
     "demo": "http-server"
   },
   "dependencies": {
-    "vl-ui-core": "^7.0.1"
+    "vl-ui-core": "^7.1.0"
   },
   "peerDependencies": {
-    "vl-ui-core": "^7.0.0"
+    "vl-ui-core": "^7.1.0"
   },
   "devDependencies": {
     "@govflanders/vl-ui-alert": "^3.12.3",
@@ -51,7 +51,7 @@
     "@govflanders/vl-ui-util": "^3.12.3",
     "vl-ui-alert": "^4.0.1",
     "vl-ui-body": "^1.0.7",
-    "vl-ui-button": "^5.0.8",
-    "vl-ui-util": "^5.3.4"
+    "vl-ui-button": "^5.0.9",
+    "vl-ui-util": "^5.3.7"
   }
 }
