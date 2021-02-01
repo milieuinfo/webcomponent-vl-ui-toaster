@@ -21,7 +21,6 @@ describe('vl-toaster', async () => {
 
     const successAlertButton = await vlToasterPage.getStandardToasterSuccessAlertButton();
     const warningAlertButton = await vlToasterPage.getStandardToasterWarningAlertButton();
-
     await assert.eventually.lengthOf(toaster.getAlerts(), 0);
 
     await successAlertButton.click();
@@ -64,18 +63,27 @@ describe('vl-toaster', async () => {
 
   it('als gebruiker kan ik zien dat alerts na enkele seconden verdwijnen indien de toaster zo geconfigureerd werd', async () => {
     const toaster = await vlToasterPage.getFadeoutToaster();
-    await assert.eventually.isTrue(toaster.shouldFadeOut());
-
     const successAlertButton = await vlToasterPage.getFadeoutToasterSuccessAlertButton();
     const errorAlertButton = await vlToasterPage.getFadeoutToasterErrorAlertButton();
-
+    await assert.eventually.isTrue(toaster.shouldFadeOut());
     await successAlertButton.click();
     await errorAlertButton.click();
     await assert.eventually.lengthOf(toaster.getAlerts(), 2);
-
     await driver.wait(async () => {
       const alerts = await toaster.getAlerts();
       return alerts.length === 0;
     });
-  }).timeout(10000);
+  });
+
+  it('Als gebruiker kan ik zien dat alerts die tegelijk aangemaakt worden na enkele seconden verdwijnen indien de toaster zo geconfigureerd werd', async () => {
+    const toaster = await vlToasterPage.getFadeoutToaster();
+    const button = await vlToasterPage.getFadeoutToasterWarningAlertsButton();
+    await assert.eventually.isTrue(toaster.shouldFadeOut());
+    await button.click();
+    await assert.eventually.lengthOf(toaster.getAlerts(), 2);
+    await driver.wait(async () => {
+      const alerts = await toaster.getAlerts();
+      return alerts.length === 0;
+    });
+  });
 });

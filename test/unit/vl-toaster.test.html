@@ -80,12 +80,14 @@
       test('bij fadeout mode verdwijnt alert automatisch na (ongeveer) 5 seconden', (done) => {
         const element = fixture('vl-toaster-fadeout-fixture');
         element.push(document.createElement('vl-alert'));
-        assert.equal(element.childNodes.length, 1);
-        // de alert verdwijnt automatisch na 5 seconden
         setTimeout(() => {
-          assert.equal(element.childNodes.length, 0);
-          done();
-        }, 6000);
+          assert.equal(element.childNodes.length, 1);
+          // de alert verdwijnt automatisch na 5 seconden
+          setTimeout(() => {
+            assert.equal(element.childNodes.length, 0);
+            done();
+          }, 6000);
+        });
       });
     });
   </script>

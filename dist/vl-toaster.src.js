@@ -59,7 +59,9 @@ export class VlToaster extends nativeVlElement(HTMLDivElement) {
    * @param {HTMLElement} alert
    */
   push(alert) {
-    this._element.appendChild(alert);
+    setTimeout(() => {
+      this._element.appendChild(alert);
+    });
   }
 
   /**
