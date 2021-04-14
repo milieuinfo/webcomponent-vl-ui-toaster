@@ -11,6 +11,10 @@ describe('vl-toaster', async () => {
     return vlToasterPage.load();
   });
 
+  it('WCAG', async () => {
+    await assert.eventually.isFalse(vlToasterPage.hasWcagIssues());
+  });
+
   it('als gebruiker kan ik alerts in een toaster zien', async () => {
     const toaster = await vlToasterPage.getStandardToaster();
     await assert.eventually.isFalse(toaster.shouldFadeOut());
